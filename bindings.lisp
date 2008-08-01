@@ -10,9 +10,9 @@
 (defctype stfl-string :pointer)
 
 (defcfun (%create "stfl_create") stfl-form (text stfl-string))
-(defcfun (free "stfl_free") :void (form stfl-form))
+(defcfun (%free "stfl_free") :void (form stfl-form))
 (defcfun (%run "stfl_run") stfl-string (form stfl-form) (timeout :int))
-(defcfun (%reset "stfl_reset") :void)
+(defcfun (reset "stfl_reset") :void)
 (defcfun (%get "stfl_get") stfl-string (form stfl-form) (name stfl-string))
 (defcfun (%set "stfl_set") :void (form stfl-form) (name stfl-string) (value stfl-string))
 (defcfun (%get-focus "stfl_get_focus") stfl-string (form stfl-form))
