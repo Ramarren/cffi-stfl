@@ -37,8 +37,8 @@
 
 (defun ipool-reset ()
   (if *ipool*
-      (setf *ipool* (ipool-create "UTF8"))
-      (ipool-flush *ipool*)))
+      (ipool-flush *ipool*)
+      (setf *ipool* (ipool-create "UTF8"))))
 
 (defun towc (text)
   (ipool-towc *ipool* text))
